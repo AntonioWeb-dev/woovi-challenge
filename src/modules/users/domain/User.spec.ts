@@ -14,7 +14,7 @@ describe('Test Users class', () => {
       email:userEmail.value,
       password: userPassword.value,
       phoneNumber: userPhone.value,
-      cpf: '62716198357',
+      cpf: '87690898687',
       pixKeys: [],
       balance: 50,
     });
