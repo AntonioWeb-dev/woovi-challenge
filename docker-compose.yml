@@ -1,19 +1,22 @@
-# Use postgres/example user/password credentials
-version: '3.1'
+# Use root/example as user/password credentials
+version: "3.1"
 
 services:
-
-  db:
-    image: postgres
+  mongo:
+    image: mongo
     restart: always
+    ports:
+      - ${DB_PORT}:27017
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: example
-      POSTGRES_DB: deposit_tvs_DB
-    ports:
-      - "3333:5432"
-  adminer:
-    image: adminer
+      MONGO_INITDB_ROOT_USERNAME: ${DB_NAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+
+  mongo-express:
+    image: mongo-express
     restart: always
     ports:
-      - 8080:8080
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_NAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASS}
+      ME_CONFIG_MONGODB_URL: mongodb://${DB_NAME}:${DB_PASS}@mongo:${DB_PORT}
