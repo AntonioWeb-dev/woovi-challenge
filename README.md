@@ -1,6 +1,6 @@
 # woovi-challenge
 
-  Este é um projeto de desafio da Woovi, onde deve se desenvolver algum aplição usando a stack deles.
+  Este é um projeto de desafio da Woovi, onde deve-se desenvolver alguma aplição usando a stack deles.
 
   Woovi-challenge: https://gist.github.com/sibelius/fe9bb57a2a00672459fa616523507f73
 
