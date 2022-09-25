@@ -4,9 +4,10 @@ import { IFilter, IUpdateProps, IUserRepo } from "@modules/users/repositories/IU
 import { UserMap } from "../mapper/UserMap";
 
 class UserRepository implements IUserRepo {
-  async findAll(): Promise<(User | undefined)[]> {
+  async findAll(): Promise<User[]> {
     const users = await client.find();
-    return users.map((user) => UserMap.toDomain(user));
+    const result = users.map((user) => UserMap.toDomain(user));
+    return result.filter((u) => u) as unknown as User[];
   }
 
   async findById(userId: string): Promise<User | undefined> {
@@ -33,9 +34,16 @@ class UserRepository implements IUserRepo {
     ).orFail();
   }
 
-  async findByFilter(filter: IFilter): Promise<(User | undefined)[]> {
+  async remove(id: string) {
+    const user = await client.findOneAndRemove(
+      { _id: id },
+    ).orFail();
+  }
+
+  async findByFilter(filter: IFilter): Promise<User[]> {
     const users = await client.find(filter);
-    return users.map((user) => UserMap.toDomain(user));
+    const result = users.map((user) => UserMap.toDomain(user));
+    return result.filter((u) => u) as unknown as User[];
   }
 
 }

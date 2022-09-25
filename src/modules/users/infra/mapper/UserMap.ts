@@ -48,7 +48,7 @@ export class UserMap {
       email: user.email.value(),
       password: await user.password.getHashedValue(),
       balance: user.balance,
-      phoneNumber: user.phoneNumber.phoneNumber,
+      phoneNumber: user.phoneNumber.value,
       cpf: user.cpf,
       pixKeys: user.pixKeys.map(pixKey => ({ kind: pixKey.kind, actived: pixKey.actived, key: pixKey.key })),
     };

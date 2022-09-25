@@ -20,7 +20,7 @@ export interface IUserProps {
   phoneNumber: UserPhone;
   cpf: string;
   pixKeys: UserPixKey[]; 
-  balance: Number;
+  balance: number;
   created_at?: Date;
   updated_at?: Date;
 }
