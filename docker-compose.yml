@@ -1,5 +1,3 @@
-# Use root/example as user/password credentials
-<<<<<<< HEAD
 version: '3.1'
 
 services:
@@ -12,26 +10,3 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-=======
-version: "3.1"
-
-services:
-  mongo:
-    image: mongo
-    restart: always
-    ports:
-      - ${DB_PORT}:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_NAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
-
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_NAME}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASS}
-      ME_CONFIG_MONGODB_URL: mongodb://${DB_NAME}:${DB_PASS}@mongo:${DB_PORT}
->>>>>>> cf5c68fe5dd544a21c0756ac4c2926385a28589f
