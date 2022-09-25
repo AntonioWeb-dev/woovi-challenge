@@ -10,7 +10,7 @@ export class UserPixKey {
     this.props = props;
   }
 
-  public key(): string {
+  public get key(): string {
     return this.props.key || '';
   }
 

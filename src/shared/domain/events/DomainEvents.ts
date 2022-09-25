@@ -4,7 +4,7 @@ import { AggregateRoot } from '../AggregateRoot';
 import { IDomainEvent } from './IDomainEvent';
 
 export class DomainEvents {
-  private static handlersMap = {};
+  private static handlersMap: Record<string, any> = {};
 
   private static markedAggregates: AggregateRoot<any>[] = [];
 
@@ -37,8 +37,8 @@ export class DomainEvents {
 
   private static findMarkedAggregateByID(
     id: string,
-  ): AggregateRoot<any> {
-    let found: AggregateRoot<any> = null;
+  ): AggregateRoot<any> | null {
+    let found: AggregateRoot<any> | null = null;
     for (const aggregate of this.markedAggregates) {
       if (aggregate.id === id) {
         found = aggregate;

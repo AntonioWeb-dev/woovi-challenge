@@ -37,7 +37,7 @@ export class User extends AggregateRoot<IUserProps> {
     return this.props.phoneNumber;
   }
 
-  public get balance(): Number {
+  public get balance(): number {
     return this.props.balance;
   }
 

@@ -14,9 +14,10 @@ export interface IUpdateProps {
 }
 
 export interface IUserRepo {
-  findAll(): Promise<(User | undefined)[]>;
+  findAll(): Promise<User[]>;
   findById(userId: string): Promise<User | undefined>;
   create(user: User): Promise<void>;
   update(id: string, userData: IFilter): Promise<void>;
-  findByFilter(filter: IFilter): Promise<(User | undefined)[]>
+  findByFilter(filter: IFilter): Promise<User[]>
+  remove(id: string): Promise<void>;
 }
